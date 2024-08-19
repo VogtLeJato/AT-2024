@@ -1,5 +1,6 @@
+from identificacao import nome, sobrenome
 
-from identificacao import nome, sobrenome 
+TP = "TPx"
 
 if not nome or not sobrenome:
     print(
@@ -34,20 +35,23 @@ def listar_exercicios():
 
 
 def submissao_filename(nome, sobrenome, ext='pdf'):
-    return f"{nome.replace(' ','_')}_{sobrenome.replace(' ', '_')}_TP1.{ext}"
+    return f"{nome.replace(' ','_')}_{sobrenome.replace(' ', '_')}_{TP}.{ext}"
 
 
 # Function to read content from .py files
 def build_exercicios_html(outputs):
     py_files_content = ""
     files = listar_exercicios()
-
+    i = 0
     for filename, output in zip(files, outputs):
         with open(os.path.join('./', filename), "r") as file:
             highlighted_code = highlight(file.read(), PythonLexer(),
                                          HtmlFormatter())
+            if i != 0:
+                py_files_content += f"<div style='page-break-before: always;'></div>"
             py_files_content += f"<h1>{filename}</h1><pre>{highlighted_code}</pre><br>"
             py_files_content += f"<h2>Saída</h2><pre class=terminal>{output}</pre><br>"
+            i += 1
     return py_files_content
 
 
@@ -81,7 +85,7 @@ def gerar_pdf(nome, sobrenome, std_output):
         </style>
     </head>
     <body>
-        <h1> Introdução a programação com Python - TP1 </h1>
+        <h1> Introdução a programação com Python - {TP} </h1>
         <h2>Nome: {nome} {sobrenome}</h2>
 
         {build_exercicios_html(split_exercicios(std_output))}
