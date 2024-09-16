@@ -1,6 +1,6 @@
 from identificacao import nome, sobrenome
 
-TP = "TPx"
+TP = "AT"
 
 if not nome or not sobrenome:
     print(
