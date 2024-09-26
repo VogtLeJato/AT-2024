@@ -18,3 +18,31 @@ Veja um exemplo em: https://pt.khanacademy.org/math/statistics-probability/summa
 
 
 """
+saiu = False
+numeros = []
+print("Digite mais de 1 número, para parar de digitar números, digite 'q'")
+
+while not saiu:
+    entrada = input("Digite um número (q para sair): ")
+    if entrada == 'q':
+        saiu = True
+    else:
+        numeros.append(float(entrada))
+
+soma = 0
+for numero in numeros:
+    soma += numero
+
+media = soma / len(numeros)
+
+soma_quadrados = 0
+for numero in numeros:
+    soma_quadrados += (numero - media) ** 2
+
+desvio_padrao = (soma_quadrados / len(numeros)) ** 0.5
+
+print(f"Soma é: {soma}")
+print(f"Média é: {media}")
+print(f"Desvio-padrao é: {desvio_padrao}")
+
+    
