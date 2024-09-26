@@ -6,3 +6,4 @@ Exemplo de execução:
 Digite um número: 10
 A soma dos números pares de 1 a 10 é: 30
 """
+teste
