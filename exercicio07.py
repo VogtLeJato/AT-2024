@@ -9,7 +9,7 @@ Ao final de 10 anos de investimento, quanto o investidor terá ganho a mais se e
 """
 
 def calcula_lucro_investimento(capital, taxa, meses):
-    capital * (1 + taxa) ** meses
+    return capital * (1 + taxa) ** meses
 
 capital = 1000.00
 taxa_poupanca = 0.005
