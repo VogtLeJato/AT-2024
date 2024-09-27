@@ -11,3 +11,11 @@ o programa deverá calcular:
 Saída esperada:
 2.083333333333333
 """
+
+numero = int(input("Digite um número: "))
+soma = 0.0
+
+for i in range(1, numero + 1):
+    soma += 1 / i
+
+print(soma)

@@ -8,3 +8,7 @@ lista1 = ["b", "o", 7, 3, 2, "x", "d", 6, "w", "n"]
 
 
 lista_intersecao = None
+
+lista_intersecao = list(set(lista0) & set(lista1))
+
+print(lista_intersecao)

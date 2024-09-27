@@ -57,3 +57,19 @@ saco_de_skittles = [
     "marrom",
     "vermelho",
 ]
+
+print(set(saco_de_skittles))
+cores_skittles = set(saco_de_skittles)
+cores_skittles.remove("vermelho")
+print(cores_skittles)
+
+quantidade_de_segundos = 0
+for cor in cores_skittles:
+    quantidade_de_skitttles_da_cor = saco_de_skittles.count(cor)
+    print((quantidade_de_skitttles_da_cor // 7) + 1)
+    quantidade_de_segundos += ((quantidade_de_skitttles_da_cor // 7) + 1) * 13
+
+quantidade_de_skitttles_vermelhos = saco_de_skittles.count("vermelho")
+quantidade_de_segundos += quantidade_de_skitttles_vermelhos * 16
+
+print(quantidade_de_segundos)

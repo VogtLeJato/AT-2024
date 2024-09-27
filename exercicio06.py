@@ -18,3 +18,26 @@ A sua tarefa agora é escrever o código para ENCRIPTAR a mensagem. A mensagem a
 """
 
 mensagem_original = "Olá Alice! Resolvi mudar nossa criptografia, acredito que nossa última mensagem foi interceptada. Mas agora com esse novo método ninguém vai conseguir ler nossas mensagens."
+
+# Acha o meio
+posicao_meio = len(mensagem_original) // 2
+
+# Primeira metade da mensagem
+primeira_metade = mensagem_original[:posicao_meio]
+
+# Segunda metade da mensagem
+segunda_metade = mensagem_original[posicao_meio:]
+
+mensagem_encriptada = ""
+
+# Monta a mensagem, intercalando uma letra de cada metade.
+i = 0
+while i <= len(primeira_metade):
+    if i < len(primeira_metade):
+        mensagem_encriptada += primeira_metade[i]
+        mensagem_encriptada += segunda_metade[i]
+    i += 1
+
+# Exibe a mensagem encriptada
+print(mensagem_encriptada)
+

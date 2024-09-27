@@ -13,3 +13,11 @@ import random
 
 lista0 = random.sample(range(1, 100), 10)
 lista1 = random.sample(range(1, 100), 10)
+
+lista_somada = []
+for i in range(0, 10):
+    lista_somada.append(lista0[i] + lista1[i])
+
+print(f"Lista original 0: {lista0}")
+print(f"Lista original 1: {lista1}")
+print(f"Lista somada: {lista_somada}")

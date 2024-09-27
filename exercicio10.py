@@ -16,3 +16,11 @@ A tabuada de 5 é:
 5 x 9 = 45
 5 x 10 = 50
 """
+
+def monta_tabuada(numero_tabuada):
+    print(f"A tabuada de {numero_tabuada} é: ")
+    for i in range(1, 10 + 1):
+        print(f"{numero_tabuada} x {i} = {numero_tabuada * i}")
+
+numero = int(input("Informe um número para apresentar a tabuada: "))
+monta_tabuada(numero)

@@ -18,3 +18,37 @@ O algoritmo de validação do CPF é baseado em cálculos matemáticos que envol
 
 Veja um exemplo em: https://dicasdeprogramacao.com.br/algoritmo-para-validar-cpf/
 """
+
+def validar_cpf(cpf):
+    # Remove caracteres especiais
+    cpf = cpf.replace('.', '').replace('-', '')
+    
+    # Verifica se o CPF tem 11 dígitos
+    if len(cpf) != 11 or not cpf.isdigit():
+        return False
+
+    # Se todos os dígitos forem iguais, o CPF é inválido
+    if cpf == cpf[0] * len(cpf):
+        return False
+
+    # Calcula o primeiro dígito verificador
+    soma1 = sum(int(cpf[i]) * (10 - i) for i in range(9))
+    resto1 = soma1 % 11
+    digito1 = 0 if resto1 < 2 else 11 - resto1
+
+    # Calcula o segundo dígito verificador
+    soma2 = sum(int(cpf[i]) * (11 - i) for i in range(10))
+    resto2 = soma2 % 11
+    digito2 = 0 if resto2 < 2 else 11 - resto2
+
+    # Verifica se os dígitos verificadores são iguais aos fornecidos
+    return cpf[-2:] == f'{digito1}{digito2}'
+
+# Solicita que o usuário insira o CPF
+cpf_informado = input("Informe o CPF no formato ddd.ddd.ddd-dd: ")
+
+# Valida o CPF
+if validar_cpf(cpf_informado):
+    print("O CPF informado é válido.")
+else:
+    print("O CPF informado é inválido.")

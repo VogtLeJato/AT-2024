@@ -15,3 +15,20 @@
     Usuário faz o palpite: 42
     Saída: "Parabéns! Você adivinhou o número!"
 """
+
+import random
+
+numero_secreto = random.randint(1, 100)
+
+print("Computador escolhe um número secreto entre 1 e 100.")
+tentativa = 0
+
+while tentativa != numero_secreto:
+    tentativa = int(input("Usuário faz o palpite: "))
+    
+    if tentativa < numero_secreto:
+        print("Seu palpite é menor que o número escolhido.")
+    elif tentativa > numero_secreto:
+        print("Seu palpite é maior que o número escolhido.")
+    else:
+        print("Parabéns! Você adivinhou o número!")
